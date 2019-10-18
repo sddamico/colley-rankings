@@ -1,0 +1,401 @@
+{
+  "teams": [
+    "FAMU",
+    "The Historic Ehnis",
+    "Ward University",
+    "Spud State",
+    "Team Drabble",
+    "2018 Hurricane Florence’s",
+    "Team ButtStuff",
+    "From Worst to Thirst",
+    "Harbaugh Nation",
+    "Team keepitrealdrake",
+    "The Betters",
+    "Team GangstaGMoney",
+    "The Goods",
+    "Yella Hammer U",
+    "Daisy St. Fightin' Beige",
+    "Better Than U.",
+    "Blue Mountain State",
+    "Haser U",
+    "Kirby's Kids",
+    "Team Mann U",
+    "Eric D Has AIDS",
+    "Barnes JuCo",
+    "New Arcadia University",
+    "F IT GO DEEP"
+  ],
+  "results": [
+    {
+      "week": 1,
+      "contests": [
+        {
+          "winner": "FAMU",
+          "loser": "Daisy St. Fightin' Beige"
+        },
+        {
+          "winner": "The Historic Ehnis",
+          "loser": "Better Than U."
+        },
+        {
+          "winner": "The Betters",
+          "loser": "Spud State"
+        },
+        {
+          "winner": "Harbaugh Nation",
+          "loser": "Haser U"
+        },
+        {
+          "winner": "Blue Mountain State",
+          "loser": "The Goods"
+        },
+        {
+          "winner": "Yella Hammer U",
+          "loser": "Ward University"
+        },
+        {
+          "winner": "Team Mann U",
+          "loser": "Team keepitrealdrake"
+        },
+        {
+          "winner": "Barnes JuCo",
+          "loser": "From Worst to Thirst"
+        },
+        {
+          "winner": "Kirby's Kids",
+          "loser": "Team ButtStuff"
+        },
+        {
+          "winner": "2018 Hurricane Florence’s",
+          "loser": "New Arcadia University"
+        },
+        {
+          "winner": "Team GangstaGMoney",
+          "loser": "F IT GO DEEP"
+        },
+        {
+          "winner": "Team Drabble",
+          "loser": "Eric D Has AIDS"
+        }
+      ]
+    },
+    {
+      "week": 2,
+      "contests": [
+        {
+          "winner": "2018 Hurricane Florence’s",
+          "loser": "Daisy St. Fightin' Beige"
+        },
+        {
+          "winner": "Better Than U.",
+          "loser": "From Worst to Thirst"
+        },
+        {
+          "winner": "Spud State",
+          "loser": "Team GangstaGMoney"
+        },
+        {
+          "winner": "Blue Mountain State",
+          "loser": "Harbaugh Nation"
+        },
+        {
+          "winner": "The Goods",
+          "loser": "New Arcadia University"
+        },
+        {
+          "winner": "Barnes JuCo",
+          "loser": "Yella Hammer U"
+        },
+        {
+          "winner": "Ward University",
+          "loser": "Eric D Has AIDS"
+        },
+        {
+          "winner": "The Historic Ehnis",
+          "loser": "F IT GO DEEP"
+        },
+        {
+          "winner": "Haser U",
+          "loser": "FAMU"
+        },
+        {
+          "winner": "Team Drabble",
+          "loser": "The Betters"
+        },
+        {
+          "winner": "Team Mann U",
+          "loser": "Team ButtStuff"
+        },
+        {
+          "winner": "Kirby's Kids",
+          "loser": "Team keepitrealdrake"
+        }
+      ]
+    },
+    {
+      "week": 3,
+      "contests": [
+        {
+          "winner": "Harbaugh Nation",
+          "loser": "Team ButtStuff"
+        },
+        {
+          "winner": "Team Drabble",
+          "loser": "The Goods"
+        },
+        {
+          "winner": "The Historic Ehnis",
+          "loser": "Yella Hammer U"
+        },
+        {
+          "winner": "Team keepitrealdrake",
+          "loser": "2018 Hurricane Florence’s"
+        },
+        {
+          "winner": "Daisy St. Fightin' Beige",
+          "loser": "New Arcadia University"
+        },
+        {
+          "winner": "Team GangstaGMoney",
+          "loser": "Eric D Has AIDS"
+        },
+        {
+          "winner": "The Betters",
+          "loser": "Barnes JuCo"
+        },
+        {
+          "winner": "Better Than U.",
+          "loser": "Kirby's Kids"
+        },
+        {
+          "winner": "FAMU",
+          "loser": "Blue Mountain State"
+        },
+        {
+          "winner": "Haser U",
+          "loser": "From Worst to Thirst"
+        },
+        {
+          "winner": "Spud State",
+          "loser": "Team Mann U"
+        },
+        {
+          "winner": "Ward University",
+          "loser": "F IT GO DEEP"
+        }
+      ]
+    },
+    {
+      "week": 4,
+      "contests": [
+        {
+          "winner": "Eric D Has AIDS",
+          "loser": "Team ButtStuff"
+        },
+        {
+          "winner": "Ward University",
+          "loser": "Harbaugh Nation"
+        },
+        {
+          "winner": "FAMU",
+          "loser": "The Goods"
+        },
+        {
+          "winner": "Daisy St. Fightin' Beige",
+          "loser": "Team Mann U"
+        },
+        {
+          "winner": "Team keepitrealdrake",
+          "loser": "From Worst to Thirst"
+        },
+        {
+          "winner": "The Betters",
+          "loser": "Kirby's Kids"
+        },
+        {
+          "winner": "Team Drabble",
+          "loser": "New Arcadia University"
+        },
+        {
+          "winner": "Haser U",
+          "loser": "Yella Hammer U"
+        },
+        {
+          "winner": "Better Than U.",
+          "loser": "Barnes JuCo"
+        },
+        {
+          "winner": "Blue Mountain State",
+          "loser": "2018 Hurricane Florence’s"
+        },
+        {
+          "winner": "The Historic Ehnis",
+          "loser": "Team GangstaGMoney"
+        },
+        {
+          "winner": "Spud State",
+          "loser": "F IT GO DEEP"
+        }
+      ]
+    },
+    {
+      "week": 5,
+      "contests": [
+        {
+          "winner": "Daisy St. Fightin' Beige",
+          "loser": "Team Drabble"
+        },
+        {
+          "winner": "Eric D Has AIDS",
+          "loser": "The Betters"
+        },
+        {
+          "winner": "Team ButtStuff",
+          "loser": "Barnes JuCo"
+        },
+        {
+          "winner": "Team keepitrealdrake",
+          "loser": "FAMU"
+        },
+        {
+          "winner": "New Arcadia University",
+          "loser": "The Historic Ehnis"
+        },
+        {
+          "winner": "Team Mann U",
+          "loser": "From Worst to Thirst"
+        },
+        {
+          "winner": "2018 Hurricane Florence’s",
+          "loser": "The Goods"
+        },
+        {
+          "winner": "Blue Mountain State",
+          "loser": "Better Than U."
+        },
+        {
+          "winner": "Harbaugh Nation",
+          "loser": "F IT GO DEEP"
+        },
+        {
+          "winner": "Kirby's Kids",
+          "loser": "Yella Hammer U"
+        },
+        {
+          "winner": "Team GangstaGMoney",
+          "loser": "Ward University"
+        },
+        {
+          "winner": "Haser U",
+          "loser": "Spud State"
+        }
+      ]
+    },
+    {
+      "week": 6,
+      "contests": [
+        {
+          "winner": "Team GangstaGMoney",
+          "loser": "Better Than U."
+        },
+        {
+          "winner": "Yella Hammer U",
+          "loser": "Harbaugh Nation"
+        },
+        {
+          "winner": "Team keepitrealdrake",
+          "loser": "The Betters"
+        },
+        {
+          "winner": "The Goods",
+          "loser": "Daisy St. Fightin' Beige"
+        },
+        {
+          "winner": "Blue Mountain State",
+          "loser": "Eric D Has AIDS"
+        },
+        {
+          "winner": "Haser U",
+          "loser": "F IT GO DEEP"
+        },
+        {
+          "winner": "Kirby's Kids",
+          "loser": "New Arcadia University"
+        },
+        {
+          "winner": "Team Mann U",
+          "loser": "Barnes JuCo"
+        },
+        {
+          "winner": "FAMU",
+          "loser": "2018 Hurricane Florence’s"
+        },
+        {
+          "winner": "Team ButtStuff",
+          "loser": "From Worst to Thirst"
+        },
+        {
+          "winner": "The Historic Ehnis",
+          "loser": "Team Drabble"
+        },
+        {
+          "winner": "Ward University",
+          "loser": "Spud State"
+        }
+      ]
+    },
+    {
+      "week": 7,
+      "contests": [
+        {
+          "winner": "The Goods",
+          "loser": "Team GangstaGMoney"
+        },
+        {
+          "winner": "The Betters",
+          "loser": "Daisy St. Fightin' Beige"
+        },
+        {
+          "winner": "Harbaugh Nation",
+          "loser": "Team keepitrealdrake"
+        },
+        {
+          "winner": "Yella Hammer U",
+          "loser": "Better Than U."
+        },
+        {
+          "winner": "Blue Mountain State",
+          "loser": "F IT GO DEEP"
+        },
+        {
+          "winner": "Barnes JuCo",
+          "loser": "New Arcadia University"
+        },
+        {
+          "winner": "Eric D Has AIDS",
+          "loser": "Team Mann U"
+        },
+        {
+          "winner": "Haser U",
+          "loser": "Kirby's Kids"
+        },
+        {
+          "winner": "Spud State",
+          "loser": "Team Drabble"
+        },
+        {
+          "winner": "2018 Hurricane Florence’s",
+          "loser": "Team ButtStuff"
+        },
+        {
+          "winner": "From Worst to Thirst",
+          "loser": "Ward University"
+        },
+        {
+          "winner": "FAMU",
+          "loser": "The Historic Ehnis"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "cfb-colley",
+  "version": "1.0.0",
+  "description": "Colley Matrix calulations for the CFB league",
+  "main": "index.js",
+  "dependencies": {
+    "colley-rankings": "^1.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Stephen D'Amico",
+  "license": "MIT"
+}
