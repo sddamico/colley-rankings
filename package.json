@@ -4,7 +4,7 @@
   "description": "Colley Matrix calulations for the CFB league",
   "main": "index.js",
   "dependencies": {
-    "colley-rankings": "^1.0.2"
+    "m4th": "^0.1.0"
   },
   "devDependencies": {},
   "scripts": {
