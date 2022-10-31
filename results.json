@@ -449,6 +449,59 @@
                     "loser": "Team keepitrealdrake"
                 }
             ]
+        },
+        {
+            "week": 9,
+            "contests": [
+                {
+                    "winner": "Kirby's Kids",
+                    "loser": "From Worst to Thirst"
+                },
+                {
+                    "winner": "AWoW",
+                    "loser": "Yella Hammer U"
+                },
+                {
+                    "winner": "Peaked in 2013",
+                    "loser": "Daisy St. Fightin' Beige"
+                },
+                {
+                    "winner": "Play it by Dick",
+                    "loser": "ZCC"
+                },
+                {
+                    "winner": "Team Mann U",
+                    "loser": "Team ButtStuff"
+                },
+                {
+                    "winner": "Team GangstaGMoney",
+                    "loser": "Reynolds U"
+                },
+                {
+                    "winner": "MACtion Daddy",
+                    "loser": "The Betters"
+                },
+                {
+                    "winner": "Nit-twinny Lions",
+                    "loser": "The Goods"
+                },
+                {
+                    "winner": "Eric D Has AIDS",
+                    "loser": "Haser U"
+                },
+                {
+                    "winner": "F IT GO DEEP",
+                    "loser": "New Arcadia University"
+                },
+                {
+                    "winner": "FAMU",
+                    "loser": "Team keepitrealdrake"
+                },
+                {
+                    "winner": "This Is The Year",
+                    "loser": "2018’s Hurricane’s Florence’s"
+                }
+            ]
         }
     ]
 }
