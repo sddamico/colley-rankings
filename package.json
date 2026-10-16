@@ -1,7 +1,7 @@
 {
   "name": "colley-rankings",
   "version": "2.0.0",
-  "description": "Colley Matrix and Elo rankings for the CFB league",
+  "description": "Colley Matrix and Elo rankings for the Swigmore Football League, pulled from Fantrax",
   "type": "module",
   "main": "index.js",
   "engines": {
@@ -12,8 +12,5 @@
     "test": "node --test"
   },
   "author": "Stephen D'Amico",
-  "license": "MIT",
-  "dependencies": {
-    "csv-parse": "^7.0.3"
-  }
+  "license": "MIT"
 }

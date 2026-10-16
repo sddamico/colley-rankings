@@ -1,27 +1,26 @@
-import { readFileSync } from 'node:fs';
 import { parseArgs } from 'node:util';
-import { parse } from 'csv-parse/sync';
+import { fetchLeague } from './fantrax.js';
 import { computeRankings } from './rankings.js';
 
-const { values, positionals } = parseArgs({
-  allowPositionals: true,
-  options: { teams: { type: 'string', default: 'results.json' } },
+const SWIGMORE_LEAGUE_ID = '4c8h6rl9mlpekt83';
+
+const { values } = parseArgs({
+  options: {
+    league: { type: 'string', default: SWIGMORE_LEAGUE_ID },
+    week: { type: 'string' },
+  },
 });
-const resultsPath = positionals[0] ?? 'results.csv';
 
-const { teams } = JSON.parse(readFileSync(values.teams, 'utf8'));
-const games = parse(readFileSync(resultsPath, 'utf8'), {
-  comment: '#',
-  columns: true,
-  skip_empty_lines: true,
-}).map((row) => ({
-  away: row.AWAY,
-  awayPts: Number.parseFloat(row.AWAY_PTS),
-  home: row.HOME,
-  homePts: Number.parseFloat(row.HOME_PTS),
-}));
+const throughWeek = values.week === undefined ? undefined : Number.parseInt(values.week, 10);
+const league = await fetchLeague(values.league, { throughWeek });
+if (league.weeks.length === 0) {
+  console.error(`${league.name} ${league.season} has no completed weeks yet`);
+  process.exit(1);
+}
 
-const rankings = computeRankings(teams, games);
+const rankings = computeRankings(league.teams, league.games);
+
+console.log(`${league.name} ${league.season}, through week ${Math.max(...league.weeks)}\n`);
 
 rankings.forEach((r, i) => {
   console.log(

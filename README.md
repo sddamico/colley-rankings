@@ -1,6 +1,6 @@
 # colley-rankings
 
-Colley Matrix and Elo rankings for the CFB league.
+Colley Matrix and Elo rankings for the Swigmore Football League, pulled from Fantrax.
 
 For more information about Colley: http://www.colleyrankings.com
 
@@ -8,19 +8,15 @@ Credit to https://github.com/Zubry/colley for the original Colley implementation
 
 ## Usage
 
-Requires Node 22+.
+Requires Node 22+. No dependencies to install.
 
 ```
-npm install
-npm start                      # reads results.csv
-node index.js path/to/games.csv
-npm test
+make run                        # every completed week
+make run WEEK=5                 # rankings as of the end of week 5
+make run LEAGUE=<id>            # another Fantrax league
+make test
 ```
 
-`results.json` holds the league's team names. Game results are a CSV (not tracked) with this header; `#` lines are comments:
+Scores come from Fantrax's public FXEA API (`getLeagueInfo`, `getMatchupScores`), so no credentials are needed. A week counts once its Fantrax scoring period has ended; the in-progress week is skipped.
 
-```
-AWAY,AWAY_PTS,HOME,HOME_PTS
-# Week 1,,,
-Team A,116.86,Team B,108.1
-```
+Ties count as half a win and half a loss: the game enters the Colley matrix, but the team's wins − losses term is unchanged.

@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { createColleyMatrix } from '../colley-matrix.js';
 import { computeRankings } from '../rankings.js';
 
+const teams = (...ids) => ids.map((id) => ({ id, name: `Team ${id}` }));
 const close = (actual, expected) => assert.ok(Math.abs(actual - expected) < 1e-9, `${actual} != ${expected}`);
 
 test('single game: winner 5/8, loser 3/8', () => {
@@ -33,13 +34,13 @@ test('A beats B, B beats C: 2/3, 1/2, 1/3', () => {
 
 test('computeRankings orders by rating and derives record, ppg, elo, sos', () => {
   const rankings = computeRankings(
-    ['A', 'B', 'C'],
+    teams('A', 'B', 'C'),
     [
       { away: 'A', awayPts: 100, home: 'B', homePts: 90 },
       { away: 'C', awayPts: 80, home: 'B', homePts: 110 },
     ],
   );
-  assert.deepEqual(rankings.map((r) => r.name), ['A', 'B', 'C']);
+  assert.deepEqual(rankings.map((r) => r.name), ['Team A', 'Team B', 'Team C']);
   assert.deepEqual(rankings.map((r) => r.record), ['1-0', '1-1', '0-1']);
   close(rankings[1].ppg, 100);
   assert.equal(rankings[0].elo, 1516);
@@ -48,13 +49,13 @@ test('computeRankings orders by rating and derives record, ppg, elo, sos', () =>
 });
 
 test('teams without games are omitted', () => {
-  const rankings = computeRankings(['A', 'B', 'Idle'], [{ away: 'A', awayPts: 1, home: 'B', homePts: 0 }]);
-  assert.deepEqual(rankings.map((r) => r.name), ['A', 'B']);
+  const rankings = computeRankings(teams('A', 'B', 'Idle'), [{ away: 'A', awayPts: 1, home: 'B', homePts: 0 }]);
+  assert.deepEqual(rankings.map((r) => r.name), ['Team A', 'Team B']);
 });
 
 test('unknown team name throws', () => {
   assert.throws(
-    () => computeRankings(['A'], [{ away: 'A', awayPts: 1, home: 'Typo', homePts: 0 }]),
-    /Unknown team "Typo"/,
+    () => computeRankings(teams('A'), [{ away: 'A', awayPts: 1, home: 'Typo', homePts: 0 }]),
+    /unknown team Typo/,
   );
 });

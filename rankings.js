@@ -4,14 +4,14 @@ import { updateRating } from './elo.js';
 const STARTING_ELO = 1500;
 
 export function computeRankings(teams, games) {
-  const index = new Map(teams.map((name, i) => [name, i]));
-  const indexOf = (name) => {
-    if (!index.has(name)) throw new Error(`Unknown team "${name}"; add it to results.json`);
-    return index.get(name);
+  const index = new Map(teams.map((team, i) => [team.id, i]));
+  const indexOf = (id) => {
+    if (!index.has(id)) throw new Error(`Game references unknown team ${id}`);
+    return index.get(id);
   };
 
   const colley = createColleyMatrix(teams.length);
-  const stats = teams.map((name) => ({ name, elo: STARTING_ELO, points: 0, opponents: [] }));
+  const stats = teams.map(({ name }) => ({ name, elo: STARTING_ELO, points: 0, opponents: [] }));
 
   for (const game of games) {
     const away = indexOf(game.away);
@@ -36,9 +36,9 @@ export function computeRankings(teams, games) {
   const ratings = colley.solve();
 
   const rows = stats
-    .filter((team) => team.opponents.length > 0)
-    .map((team) => {
-      const i = index.get(team.name);
+    .map((team, i) => ({ team, i }))
+    .filter(({ team }) => team.opponents.length > 0)
+    .map(({ team, i }) => {
       const { wins, losses, draws } = colley.records[i];
       const gamesPlayed = team.opponents.length;
       return {
