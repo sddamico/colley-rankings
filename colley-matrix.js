@@ -1,85 +1,55 @@
-// Taken from: https://github.com/Zubry/colley/blob/master/colley-matrix.js
+// Adapted from https://github.com/Zubry/colley/blob/master/colley-matrix.js
 
-'use strict';
+// Colley system Cr = b:
+//   C[i][i] = 2 + games played by i
+//   C[i][j] = -(games between i and j)
+//   b[i]    = 1 + (wins - losses) / 2
+// A draw counts as half a win and half a loss, so it adds to C but not to b.
+export function createColleyMatrix(teamCount) {
+  const C = Array.from({ length: teamCount }, (_, i) =>
+    Array.from({ length: teamCount }, (_, j) => (i === j ? 2 : 0)),
+  );
+  const records = Array.from({ length: teamCount }, () => ({ wins: 0, losses: 0, draws: 0 }));
 
-const m4th = require('m4th');
+  function addGame(winner, loser, draw = false) {
+    C[winner][loser] -= 1;
+    C[loser][winner] -= 1;
+    C[winner][winner] += 1;
+    C[loser][loser] += 1;
 
-/*
-  A Colley Matrix is an extension of a Sparse Matrix, with some restrictions:
-    * C[i][i] = 2 + n, where n is the number of games team i has played
-    * C[i][j] = -n[i][j], where n[i][j] is the number of times team i has played team j
-*/
-
-const ColleyMatrix = function(teamCount){
-  // This is our Colley Matrix
-  let C = m4th.matrix(teamCount);
-
-  // These is our column vector of Colley ratings, initialized to 1
-  let colleyRatings = Array.apply(null, {length: teamCount}).map(function(){
-    return {
-      'wins': 0,
-      'losses': 0,
-      'rating': 1
-    };
-  });
-
-  // Initialize the Colley Matrix such that each M[i][j] = 0
-  C = C.map(function(element){
-    return 0;
-  });
-
-  // Initialize the Colley Matrix such that M[i][i] = 2 + n
-  for(let i = 0; i < teamCount; ++i){
-    C.set(i, i, 2);
+    if (draw) {
+      records[winner].draws++;
+      records[loser].draws++;
+    } else {
+      records[winner].wins++;
+      records[loser].losses++;
+    }
   }
 
-  const addGame = function(winner, loser){
-    // Figure out how many times these teams have played
-    let gameCount = C.get(winner, loser) || 0;
+  function solve() {
+    const b = records.map(({ wins, losses }) => 1 + (wins - losses) / 2);
+    return solveLinear(C, b);
+  }
 
-    // Update each team's entries
-    C.set(winner, loser, gameCount - 1);
-    C.set(loser, winner, gameCount - 1);
+  return { records, addGame, solve };
+}
 
-    // Restrict M[i][i] to 2 + n
-    C.set(winner, winner, C.get(winner, winner) + 1);
-    C.set(loser, loser, C.get(loser, loser) + 1);
+// C is symmetric positive definite, so elimination without pivoting is stable.
+function solveLinear(matrix, vector) {
+  const n = vector.length;
+  const A = matrix.map((row) => [...row]);
+  const x = [...vector];
 
-    // Update the ratings of each team
-    updateRatings(winner, loser)
-  };
-
-  const updateRatings = function(winner, loser){
-    colleyRatings[winner].wins++;
-    colleyRatings[loser].losses++;
-
-    // Rating = 1 + (w - l)/2
-    colleyRatings[winner].rating = 1 + (colleyRatings[winner].wins - colleyRatings[winner].losses)/2;
-    colleyRatings[loser].rating = 1 + (colleyRatings[loser].wins - colleyRatings[loser].losses)/2;
-  };
-
-  const getMatrix = function(){
-    return C.toString();
-  };
-
-  const getRatings = function(){
-    return colleyRatings.map(function(team){
-      return team.rating;
-    });
-  };
-
-  const solve = function(){
-    let y = m4th.matrix(teamCount, getRatings());
-    return m4th.lu(C).solve(y);
-  };
-
-  return {
-    'matrix': colleyRatings,
-    'addGame': addGame,
-    'getMatrix': getMatrix,
-    'getRatings': getRatings,
-    'solve': solve
-  };
-};
-
-module.exports = ColleyMatrix
+  for (let k = 0; k < n; k++) {
+    for (let i = k + 1; i < n; i++) {
+      const factor = A[i][k] / A[k][k];
+      for (let j = k; j < n; j++) A[i][j] -= factor * A[k][j];
+      x[i] -= factor * x[k];
+    }
+  }
+  for (let i = n - 1; i >= 0; i--) {
+    for (let j = i + 1; j < n; j++) x[i] -= A[i][j] * x[j];
+    x[i] /= A[i][i];
+  }
+  return x;
+}

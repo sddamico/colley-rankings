@@ -1,14 +1,19 @@
 {
-  "name": "cfb-colley",
-  "version": "1.0.0",
-  "description": "Colley Matrix calulations for the CFB league",
+  "name": "colley-rankings",
+  "version": "2.0.0",
+  "description": "Colley Matrix and Elo rankings for the CFB league",
+  "type": "module",
   "main": "index.js",
-  "dependencies": {
-    "m4th": "^0.1.0"
+  "engines": {
+    "node": ">=22"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "test": "node --test"
   },
   "author": "Stephen D'Amico",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "csv-parse": "^7.0.3"
+  }
 }
